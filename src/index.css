@@ -2,5 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-    
+    --font-commissioner: "Commissioner", sans-serif;
+
+    --color-custom-green-400: hsl(176, 50%, 47%);
+    --color-custom-green-700: hsl(176, 72%, 28%);
+    --color-custom-gray-500: hsl(0, 0%, 48%);
+
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-700: 700;
 }
+
+/* 400, 500, 700 */
