@@ -11,16 +11,16 @@ const Homepage = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-        if (menuRef.current && !menuRef.current.contains(event.target)) {
-            setIsMenuOpen(false)
-        }
-    }
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isMenuOpen])
+  }, [isMenuOpen]);
 
   return (
     <header>
@@ -60,15 +60,18 @@ const Homepage = () => {
         )}
 
         {isMenuOpen && (
-          <div className="absolute top-14 left-1/2 grid h-min w-78 -translate-x-1/2 items-center rounded-lg bg-white" ref={menuRef}>
-            <ul className="divide-gray-200 flex flex-col justify-between gap-4 divide-y px-4 py-3">
-              <Link to="/about" className="text-sm/6 pb-6">
+          <div
+            className="absolute z-20 top-14 left-1/2 grid h-min w-78 -translate-x-1/2 items-center rounded-lg bg-white"
+            ref={menuRef}
+          >
+            <ul className="flex flex-col justify-between gap-4 divide-y divide-gray-200 px-4 py-3 font-500">
+              <Link to="/#about" className="pb-6 text-sm/6">
                 About
               </Link>
-              <Link to="/discover" className="text-sm/6 pb-6">
+              <Link to="/discover" className="pb-6 text-sm/6">
                 Discover
               </Link>
-              <Link to="/get-started" className="text-sm/6 pb-6">
+              <Link to="/get-started" className="pb-6 text-sm/6">
                 Get Started
               </Link>
             </ul>
