@@ -7,7 +7,7 @@ const initialState = {
     {
       id: 1,
       name: "Pledge with no reward",
-      pledgeAmount: 0,
+      pledgeAmount: 1,
       description:
         "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates.",
       itemsLeft: null,

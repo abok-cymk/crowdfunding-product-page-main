@@ -5,6 +5,7 @@ import Intro from "./sections/Intro";
 import Stats from "./sections/Stats";
 import { usePledge } from "./context/PledgeContext";
 import ThankYouModal from "./components/ThankYouModal";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const {
@@ -22,6 +23,7 @@ function App() {
       </main>
       {isModalOpen && <BackThisProjectModal />}
       {thankYouModal && <ThankYouModal />}
+      <Toaster />
     </>
   );
 }

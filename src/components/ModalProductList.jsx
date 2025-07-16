@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ModalProduct from "./ModalProduct";
 import { usePledge } from "../context/PledgeContext";
+import toast from "react-hot-toast";
 
 const ModalProductList = () => {
   const {
@@ -19,7 +20,7 @@ const ModalProductList = () => {
         payload: { productId, pledgeAmount },
       });
     } else {
-      alert(`Pledge amount must be at least $${product.pledgeAmount}`);
+      toast.error(`Pledge amount must be at least $${product.pledgeAmount}`);
     }
   };
 
