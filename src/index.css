@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-commissioner: "Commissioner", sans-serif;
+
+  --color-Green-400: hsl(176, 50%, 47%);
+  --color-Green-700: hsl(176, 72%, 28%);
+  --color-Gray-500: hsl(0, 0%, 48%);
+  --color-Gray-200: hsl(0, 0%, 98%);
+}
+
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 400;
+  src: url("/src/assets/fonts/Commissioner/static/Commissioner-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 500;
+  src: url("/src/assets/fonts/Commissioner/static/Commissioner-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 700;
+  src: url("/src/assets/fonts/Commissioner/static/Commissioner-Bold.ttf");
+}
+
