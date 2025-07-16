@@ -1,61 +1,30 @@
-import { forwardRef, useEffect } from "react";
+import { usePledge } from "../context/PledgeContext";
 import ModalProductList from "./ModalProductList";
-import Button from "./ui/Button";
 
 const baseImagePath = import.meta.env.BASE_URL;
 
-const BackThisProjectModal = forwardRef(({ onClose }, ref) => {
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
+const BackThisProjectModal = () => {
+  const { dispatch } = usePledge();
 
-    const handleClickOutside = (event) => {
-      const rect = dialog.getBoundingClientRect();
-      const isInDialog =
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width;
-
-      if (!isInDialog) {
-        onClose?.();
-      }
-    };
-
-    const handleEscape = (event) => {
-      if (event.key === "Escape") {
-        onClose?.();
-      }
-    };
-
-    dialog.addEventListener("click", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      dialog.removeEventListener("click", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [onClose]);
+  const handleClose = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
 
   return (
-    <dialog
-      ref={ref}
-      className="max-w-2xl max-md:w-[90vw] mx-auto my-auto w-full max-h-[90vh] overflow-y-auto rounded-lg p-0 backdrop:bg-black/10"
-    >
-      <div className="bg-white p-8 rounded-lg">
+    <div className="fixed inset-0 bg-black/10 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-2xl font-bold text-black">Back this project</h3>
-          <Button
+          <button
             type="button"
-            variant="ghost"
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full"
+            onClick={handleClose}
+            className="cursor-pointer"
           >
             <img
               src={`${baseImagePath}/icon-close-modal.svg`}
               alt="Close modal"
             />
-          </Button>
+          </button>
         </div>
         <div className="mb-6">
           <p className="text-Gray-500 font-medium">
@@ -63,11 +32,11 @@ const BackThisProjectModal = forwardRef(({ onClose }, ref) => {
             in the world?
           </p>
         </div>
-        <ModalProductList onClose={onClose} />
+        <ModalProductList />
       </div>
-    </dialog>
+    </div>
   );
-});
+};
 
 BackThisProjectModal.displayName = "BackThisProjectModal";
 

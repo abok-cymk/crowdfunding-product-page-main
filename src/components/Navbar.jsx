@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [handleClickOutside]);
 
   return (
-    <header className="bg-[url('/image-hero-mobile.jpg')] md:bg-[url('/image-hero-desktop.jpg')] bg-no-repeat h-[55vh] md:h-[40vh] lg:h-[60vh] bg-cover">
+    <header className="bg-[url('/image-hero-mobile.jpg')] md:bg-[url('/image-hero-desktop.jpg')] bg-no-repeat h-[55vh] md:h-[40vh] lg:h-[50vh] bg-cover">
       <div className="max-w-6xl mx-auto px-6 py-10 lg:px-0 flex items-center justify-between">
         <Logo />
         <ul className="hidden md:flex items-center gap-5 text-white font-medium">

@@ -3,14 +3,14 @@ import { forwardRef } from "react";
 import Button from "./ui/Button";
 
 const Product = forwardRef(
-  ({ name, pledgeTip, description, amountLeft }, ref) => {
+  ({ name, pledgeTip, description, amountLeft, onSelect }, ref) => {
     return (
       <div
         ref={ref}
         className={clsx(
           "border rounded-md px-8 py-6 flex flex-col gap-4 bg-white",
           amountLeft === 0
-            ? "border-gray-200 bg-opacity-10"
+            ? "border-gray-200 bg-opacity-10 pointer-events-none"
             : "border-Gray-500/50"
         )}
       >
@@ -63,6 +63,7 @@ const Product = forwardRef(
           <Button
             variant={amountLeft === 0 ? "ghost" : "primary"}
             className="max-md:block max-md:mt-1"
+            onClick={onSelect}
           >
             {amountLeft === 0 ? "Out of stock" : "Select Reward"}
           </Button>

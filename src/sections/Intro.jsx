@@ -1,18 +1,13 @@
-import { useRef } from "react";
 import Button from "../components/ui/Button";
-import BackThisProjectModal from "../components/BackThisProjectModal";
+import { usePledge } from "../context/PledgeContext";
 
 const baseImagePath = import.meta.env.BASE_URL;
 
 function Intro() {
-  const modalRef = useRef();
+  const { dispatch } = usePledge();
 
   const handleBackProject = () => {
-    modalRef.current?.showModal();
-  };
-
-  const handleCloseModal = () => {
-    modalRef.current?.close();
+    dispatch({ type: "SELECT_PRODUCT" });
   };
 
   return (
@@ -62,8 +57,6 @@ function Intro() {
           </div>
         </div>
       </section>
-
-      <BackThisProjectModal ref={modalRef} onClose={handleCloseModal} />
     </>
   );
 }
